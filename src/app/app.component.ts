@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'inventory-app';
+
+  // TODO: 1. Routing + skeleton
+  // TODO: 2. Basic form
+  // TODO: 3. Authentication + error handling
 }
