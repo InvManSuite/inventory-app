@@ -10,4 +10,6 @@ export class InventoryListComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {}
+
+  // TODO: Implement a dynamic list of inventory items (name, quantity)
 }

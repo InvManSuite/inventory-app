@@ -7,6 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   // TODO: 1. Routing + skeleton
-  // TODO: 2. Basic form
-  // TODO: 3. Authentication + error handling
+  // TODO: 2. Display data
+  // TODO: 3. Basic form + CRUD
+  // TODO: 4. Authentication + error handling
 }

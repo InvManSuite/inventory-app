@@ -1,1 +1,5 @@
-<p>inventory-item works!</p>
+<ul>
+  <li *ngFor = "let item of itemList">
+    {{item.name}}, {{item.quantity}}
+  </li>
+</ul>
