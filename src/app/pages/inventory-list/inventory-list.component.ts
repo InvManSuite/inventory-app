@@ -1,4 +1,10 @@
 import { Component, OnInit } from "@angular/core";
+import { FormControl } from "@angular/forms";
+
+export interface Item {
+  name: string;
+  quantity: number;
+}
 
 @Component({
   selector: "app-inventory-list",
@@ -6,10 +12,17 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./inventory-list.component.css"]
 })
 export class InventoryListComponent implements OnInit {
-  title = "inventory-app";
+  name = new FormControl("");
+  quantity = new FormControl("");
+
   constructor() {}
+
+  public itemList: Item[] = [
+    { name: "shirt", quantity: 5 },
+    { name: "top", quantity: 2 }
+  ];
 
   ngOnInit() {}
 
-  // TODO: Implement a dynamic list of inventory items (name, quantity)
+  // TODO: Implement a dynamic list of inventory items (name, description, quantity)
 }

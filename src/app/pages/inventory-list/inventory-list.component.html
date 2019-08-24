@@ -1,1 +1,42 @@
-<app-inventory-item></app-inventory-item>
+
+<div class="container">
+<form action="submit">
+  <div class="form-group">
+    <label for="nameInput">Name</label>
+
+    <input
+      type="text"
+      class="form-control"
+      id="nameInput"
+      placeholder="Enter item name"
+      [formControl]="name"
+    />
+    <small id="NameHelp" class="form-text text-muted">
+      We'll never share your item name with anyone else.
+    </small>
+  </div>
+  <div class="form-group">
+    <label for="quantityInput">
+      Quantity:
+      <input
+        type="number"
+        [formControl]="quantity"
+        id="quantityInput"
+        placeholder="Enter quantity here"
+    /></label>
+  </div>
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+<hr>
+  <div class="row ">
+    <div class="col">
+      <h2>Name</h2>
+    </div>
+    <div class="col">
+      <h2>Quantity</h2>
+    </div>
+  </div>
+  <app-inventory-item *ngFor="let item of itemList" [item]="item">
+  </app-inventory-item>
+</div>
