@@ -1,34 +1,46 @@
-
 <div class="container">
-<form action="submit">
-  <div class="form-group">
-    <label for="nameInput">Name</label>
+  <h1>New item</h1>
+  <form [formGroup]="inventoryForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="nameInput">Name</label>
 
-    <input
-      type="text"
-      class="form-control"
-      id="nameInput"
-      placeholder="Enter item name"
-      [formControl]="name"
-    />
-    <small id="NameHelp" class="form-text text-muted">
-      We'll never share your item name with anyone else.
-    </small>
-  </div>
-  <div class="form-group">
-    <label for="quantityInput">
-      Quantity:
       <input
-        type="number"
-        [formControl]="quantity"
-        id="quantityInput"
-        placeholder="Enter quantity here"
-    /></label>
-  </div>
+        type="text"
+        class="form-control"
+        id="nameInput"
+        placeholder="Enter item name"
+        formControlName="name"
+      />
+      <small id="NameHelp" class="form-text text-muted">
+        We'll never share your item name with anyone else.
+      </small>
+    </div>
+    <div class="form-group">
+      <label for="quantityInput">
+        Quantity:
+        <input
+          type="number"
+          class="form-control"
+          formControlName="quantity"
+          id="quantityInput"
+          placeholder="Enter quantity here"
+      /></label>
+    </div>
+    <div class="form-group">
+      <label for="descriptionInput">
+        Description:
+        <textarea
+          class="form-control"
+          formControlName="quantity"
+          id="descriptionInput"
+          placeholder="Enter description here"
+        ></textarea
+      ></label>
+    </div>
 
-  <button type="submit" class="btn btn-primary">Submit</button>
-</form>
-<hr>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+  <hr />
   <div class="row ">
     <div class="col">
       <h2>Name</h2>

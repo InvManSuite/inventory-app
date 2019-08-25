@@ -1,9 +1,10 @@
 import { Component, OnInit } from "@angular/core";
-import { FormControl } from "@angular/forms";
+import { FormControl, FormGroup } from "@angular/forms";
 
 export interface Item {
   name: string;
   quantity: number;
+  description?: string;
 }
 
 @Component({
@@ -12,17 +13,25 @@ export interface Item {
   styleUrls: ["./inventory-list.component.css"]
 })
 export class InventoryListComponent implements OnInit {
-  name = new FormControl("");
-  quantity = new FormControl("");
+  inventoryForm = new FormGroup({
+    name: new FormControl(""),
+    quantity: new FormControl("")
+  });
 
   constructor() {}
 
   public itemList: Item[] = [
-    { name: "shirt", quantity: 5 },
-    { name: "top", quantity: 2 }
+    { name: "shirt", quantity: 5, description: '' },
+    { name: "top", quantity: 2, description: '' }
   ];
 
-  ngOnInit() {}
+  onSubmit() {
+    console.log(this.inventoryForm);
 
-  // TODO: Implement a dynamic list of inventory items (name, description, quantity)
+    this.itemList.push({
+      name: this.inventoryForm.value['name'],
+      quantity: this.inventoryForm.value['quantity']
+    });
+  }
+  ngOnInit() {}
 }
