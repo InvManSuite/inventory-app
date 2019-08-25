@@ -6,8 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  // TODO: 1. Routing + skeleton
-  // TODO: 2. Display data
-  // TODO: 3. Basic form + CRUD
-  // TODO: 4. Authentication + error handling
+
+  // TODO Basic form + CRUD
+  // TODO Authentication + error handling
+  // TODO Header / Footer
 }

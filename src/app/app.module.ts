@@ -7,6 +7,7 @@ import { InventoryListComponent } from "./pages/inventory-list/inventory-list.co
 import { InventoryItemComponent } from "./pages/inventory-item/inventory-item.component";
 import { HeaderComponent } from "./header/header.component";
 import { FooterComponent } from "./footer/footer.component";
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,7 @@ import { FooterComponent } from "./footer/footer.component";
     HeaderComponent,
     FooterComponent
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule, FontAwesomeModule],
   providers: [],
   bootstrap: [AppComponent]
 })
