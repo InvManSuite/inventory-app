@@ -5,7 +5,8 @@ This project is a tool to manage inventory.
 ## Installation
 
 Clone the project.
-Run `npm install` in project root folder to install.
+
+Run `npm install` in project root folder to install relevant libraries.
 
 ## Development server
 
