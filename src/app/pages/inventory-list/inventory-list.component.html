@@ -31,13 +31,13 @@
         Description:
         <textarea
           class="form-control"
-          formControlName="quantity"
+          formControlName="description"
           id="descriptionInput"
           placeholder="Enter description here"
         ></textarea
       ></label>
     </div>
-
+    <button type="button" class="btn btn-secondary" (click)="get()">HttpGet</button>
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>
   <hr />
@@ -48,7 +48,10 @@
     <div class="col">
       <h2>Quantity</h2>
     </div>
+    <div class="col">
+      <h2>Description</h2>
+    </div>
   </div>
-  <app-inventory-item *ngFor="let item of itemList" [item]="item">
+  <app-inventory-item *ngFor="let item of items" [item]="item">
   </app-inventory-item>
 </div>
