@@ -40,6 +40,9 @@ export class InventoryListComponent implements OnInit {
   onSubmit() {
     console.log(this.inventoryForm);
 
+    // this.httpClient
+    //   .post('url');
+
     this.items.push({
       name: this.inventoryForm.controls.name.value,
       quantity: this.inventoryForm.controls.quantity.value,
