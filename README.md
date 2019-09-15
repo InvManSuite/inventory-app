@@ -1,6 +1,6 @@
 # InventoryApp
 
-This project is a tool to manage inventory.
+This project is a the web app for a tool to manage inventory.
 
 ## Installation
 
