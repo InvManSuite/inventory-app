@@ -46,6 +46,23 @@ export class InventoryListComponent implements OnInit {
       .subscribe(console.log);
   }
 
+  update() {
+    const item = {
+      id: '11d5364e-ee22-4c6f-9919-c055774e1566',
+      name: 'testNameUpdated2',
+      quantity: 2,
+      description: 'testDescriptionUpdated2'
+    };
+    this.itemService.Update(item)
+      .subscribe(console.log);
+  }
+
+  delete() {
+    const id = '6a0de265-9dfc-4c24-809d-b0ab6fc8e6c9';
+    this.itemService.Delete(id)
+      .subscribe(console.log);
+  }
+
   onSubmit() {
     console.log(this.inventoryForm);
 
