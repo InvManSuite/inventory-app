@@ -1,13 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup} from '@angular/forms';
 import {ItemsService} from 'src/app/shared/items.repository';
-
-export interface Item {
-  name: string;
-  quantity: number;
-  description: string;
-  id?: string;
-}
+import {Item} from 'src/app/shared/items.model';
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-inventory-list',
@@ -21,57 +16,68 @@ export class InventoryListComponent implements OnInit {
     description: new FormControl('')
   });
 
-  public items: Item[] = [
-    {name: 'shirt', quantity: 5, description: 'White shirt for men'},
-    {name: 'top', quantity: 2, description: 'Nice sweater for outdoors'}
-  ];
+  public items$: Observable<Item[]>;
+  public items: Item[];
 
   constructor(private itemService: ItemsService) {
+    this.items$ = this.itemService.GetAll();
+    this.items$.subscribe(console.log);
   }
 
   get() {
-    this.itemService.GetAll()
-      .subscribe(console.log);
-    this.itemService.GetById('11d5364e-ee22-4c6f-9919-c055774e1566')
-      .subscribe(console.log);
-  }
-
-  save() {
-    const item = {
-      name: 'testName',
-      quantity: 3,
-      description: 'testDescription'
-    };
-    this.itemService.Create(item)
-      .subscribe(console.log);
-  }
-
-  update() {
-    const item = {
-      id: '11d5364e-ee22-4c6f-9919-c055774e1566',
-      name: 'testNameUpdated2',
-      quantity: 2,
-      description: 'testDescriptionUpdated2'
-    };
-    this.itemService.Update(item)
-      .subscribe(console.log);
-  }
-
-  delete() {
-    const id = '6a0de265-9dfc-4c24-809d-b0ab6fc8e6c9';
-    this.itemService.Delete(id)
-      .subscribe(console.log);
+    this.items$.subscribe(console.log);
   }
 
   onSubmit() {
     console.log(this.inventoryForm);
-
-    this.items.push({
-      name: this.inventoryForm.controls.name.value,
-      quantity: this.inventoryForm.controls.quantity.value,
-      description: this.inventoryForm.controls.description.value
-    });
+    const item: Item = {
+      name: this.inventoryForm.value.name,
+      description: this.inventoryForm.value.description,
+      quantity: this.inventoryForm.value.quantity
+    };
+    console.log(item);
+    this.itemService.Create(item)
+      .subscribe();
   }
+
+  // save() {
+  //   const item = {
+  //     name: 'testName',
+  //     quantity: 3,
+  //     description: 'testDescription'
+  //   };
+  //   this.itemService.Create(item)
+  //     .subscribe(console.log);
+  // }
+  public save() {
+
+  }
+
+  public update() {
+
+  }
+
+  public delete() {
+
+  }
+
+  // update() {
+  //   const item = {
+  //     id: '11d5364e-ee22-4c6f-9919-c055774e1566',
+  //     name: 'testNameUpdated2',
+  //     quantity: 2,
+  //     description: 'testDescriptionUpdated2'
+  //   };
+  //   this.itemService.Update(item)
+  //     .subscribe(console.log);
+  // }
+  //
+  // delete() {
+  //   const id = '6a0de265-9dfc-4c24-809d-b0ab6fc8e6c9';
+  //   this.itemService.Delete(id)
+  //     .subscribe(console.log);
+  // }
+
 
   ngOnInit() {
   }

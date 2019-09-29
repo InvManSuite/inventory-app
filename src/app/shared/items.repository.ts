@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {Item} from '../pages/inventory-list/inventory-list.component';
+import {Item} from './items.model';
 
 export interface IRepository {
   endpoint: string;
@@ -21,7 +21,7 @@ export interface IRepository {
   providedIn: 'root'
 })
 export class ItemsService implements IRepository {
-  endpoint = 'https://localhost:44309' + '/api/items';
+  endpoint = 'https://inventory-api-core-2.azurewebsites.net' + '/api/items';
 
   constructor(private httpClient: HttpClient) {
   }
@@ -31,7 +31,7 @@ export class ItemsService implements IRepository {
       .get<Item[]>(this.endpoint);
   }
 
-  public GetById(id): Observable<Item> {
+  public GetById(id: string): Observable<Item> {
     return this.httpClient
       .get<Item>(`${this.endpoint}/${id}`);
   }
